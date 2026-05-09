@@ -4,21 +4,22 @@ DeepShield is a high-performance, full-stack deepfake detection system. It lever
 
 ## ✨ Features
 
--   **Multi-Media Analysis**: Supports both image and video uploads.
+-   **Multi-Frame Video Robustness**: Analyzes multiple frames per second to ensure detection consistency across the entire video.
 -   **Neural Integrity Check**: Powered by a pre-trained Xception model optimized for face-forensics.
 -   **Explainable AI (XAI)**: Generates Grad-CAM heatmaps to visualize where the AI detects anomalies.
--   **Frequency Domain Analysis**: Uses Fast Fourier Transform (FFT) to identify GAN-generated artifacts.
+-   **Advanced Frequency Domain Analysis**: Uses Fast Fourier Transform (FFT) with Magma-spectrum visualization to identify GAN-generated checkerboard artifacts.
+-   **Simulation & Resilience Mode**: Robust architecture that remains functional even in resource-constrained environments (Simulation Mode).
 -   **Modern Dashboard**: A sleek, responsive glassmorphic UI built for speed and clarity.
 
-## 🏗️ Architecture
+## 🏗️ Architecture & Pipeline
 
--   **Frontend**: HTML5, Vanilla CSS (Glassmorphism), JavaScript (Fetch API).
--   **Backend**: Flask (Python) with a modular utility structure.
--   **ML Pipeline**: 
-    -   Face Extraction (OpenCV)
-    -   Classification (TensorFlow/Keras)
-    -   Explainability (Grad-CAM)
-    -   Frequency Analysis (FFT)
+DeepShield employs a multi-stage pipeline for digital integrity verification:
+
+1.  **Face Acquisition**: OpenCV-based Haar Cascades or MTCNN are used to isolate facial regions.
+2.  **Spatial Analysis (Deep Learning)**: An XceptionNet-based CNN analyzes the spatial pixels for manipulation signatures.
+3.  **Frequency Analysis (Signal Processing)**: FFT is used to detect high-frequency noise that is characteristic of AI generation but invisible to the human eye.
+4.  **Ensemble Scoring**: Results from multiple frames and analysis modes are aggregated for a final confidence score.
+5.  **Interpretability**: Grad-CAM is applied to provide a visual 'why' behind the AI's decision.
 
 ## 🚀 Getting Started
 
