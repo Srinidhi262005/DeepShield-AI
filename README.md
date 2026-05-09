@@ -60,5 +60,9 @@ Access the application at `http://127.0.0.1:5000`.
 ## 🤝 Contributing
 DeepShield is an open-source project aimed at digital integrity. Feel free to submit PRs for improved detection models or better UI features.
 
+## 👤 Author
+**Kaiytha Srinidhi Reddy**  
+Connect on [LinkedIn](https://www.linkedin.com/in/kaiytha-srinidhi-reddy-27a655282/)
+
 ## 📜 License
 MIT License. Created by the DeepShield AI Team.

@@ -359,10 +359,43 @@ h1 {
     position: relative;
 }
 
-/* Footer */
+/* Footer & Social Links */
 .footer {
     text-align: center;
-    padding: 2rem;
+    padding: 3rem 2rem;
     color: var(--text-dim);
     font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+}
+
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.linkedin-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    background: rgba(79, 172, 254, 0.05);
+    border-radius: 99px;
+    border: 1px solid transparent;
+}
+
+.linkedin-link svg {
+    width: 18px;
+    height: 18px;
+}
+
+.linkedin-link:hover {
+    background: rgba(79, 172, 254, 0.1);
+    border-color: var(--primary);
+    transform: translateY(-2px);
 }
