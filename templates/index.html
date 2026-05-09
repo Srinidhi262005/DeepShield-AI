@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepShield | AI Deepfake Detector</title>
+    <meta name="description" content="Advanced AI-powered deepfake detection for images and videos. Ensure digital integrity with DeepShield.">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-glow"></div>
+    
+    <div id="simulationBanner" class="banner hidden">
+        <span>⚠️ Running in Simulation Mode (TensorFlow not available)</span>
+    </div>
+        <header class="header">
+            <div class="logo">
+                <span class="shield-icon">🛡️</span>
+                <h1>DeepShield</h1>
+            </div>
+            <p class="subtitle">Next-Generation Deepfake Detection System</p>
+        </header>
+
+        <section class="upload-section">
+            <div class="card glass">
+                <div class="drop-zone" id="dropZone">
+                    <div class="drop-zone-content">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                        </svg>
+                        <h3>Drop image or video here</h3>
+                        <p>or click to browse files</p>
+                        <input type="file" id="fileInput" accept="image/*,video/*" hidden>
+                    </div>
+                    <div id="filePreview" class="file-preview hidden"></div>
+                </div>
+                
+                <div class="actions">
+                    <button id="submitBtn" class="btn btn-primary" disabled>
+                        <span class="btn-text">Analyze Media</span>
+                        <span class="loader hidden"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="resultsSection" class="results-section hidden">
+            <div class="results-grid">
+                <!-- Analysis Result Card -->
+                <div class="card glass result-main-card">
+                    <div class="result-header">
+                        <h2>Analysis Result</h2>
+                        <div id="predictionBadge" class="badge">Checking...</div>
+                    </div>
+                    <div class="confidence-container">
+                        <div class="confidence-label">Confidence Score</div>
+                        <div class="progress-bar">
+                            <div id="confidenceBar" class="progress-fill"></div>
+                        </div>
+                        <div id="confidenceText" class="confidence-value">0%</div>
+                    </div>
+                </div>
+
+                <!-- Technical Visuals -->
+                <div class="visuals-grid">
+                    <div class="card glass visual-card">
+                        <div class="card-header">
+                            <h3>Heatmap Analysis</h3>
+                            <div class="info-icon" title="Grad-CAM highlights areas where the AI detected synthetic patterns. Red zones indicate high anomaly probability.">ⓘ</div>
+                        </div>
+                        <p class="visual-desc">Spatial anomaly detection overlay</p>
+                        <div class="image-container">
+                            <img id="heatmapImg" src="" alt="Heatmap Analysis">
+                        </div>
+                    </div>
+                    <div class="card glass visual-card">
+                        <div class="card-header">
+                            <h3>FFT Spectrum</h3>
+                            <div class="info-icon" title="Frequency analysis detects 'checkerboard' artifacts common in GAN-generated images. High-frequency noise often indicates deepfakes.">ⓘ</div>
+                        </div>
+                        <p class="visual-desc">Frequency domain artifacts</p>
+                        <div class="image-container">
+                            <img id="fftImg" src="" alt="FFT Spectrum">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 DeepShield AI. Secured by Neural Integrity Analysis.</p>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
