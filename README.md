@@ -50,12 +50,14 @@ Access the application at `http://127.0.0.1:5050`.
 ## ☁️ Deployment (Render)
 
 1.  **Repository**: Push your code to GitHub.
-2.  **New Web Service**: Create a new Web Service on [Render](https://render.com).
+2.  **Deploy**:
+    -   **Fastest**: Use Render "Blueprint" deploy (this repo includes `render.yaml`).
+    -   Or create a new Web Service manually on [Render](https://render.com).
 3.  **Environment**: 
     -   **Runtime**: Python 3
     -   **Build Command**: `pip install -r requirements.txt`
     -   **Start Command**: `gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 120`
-4.  **Environment Variables**: Ensure `PYTHON_VERSION` is set to `3.9.0` or higher.
+4.  **Environment Variables**: Set `PYTHON_VERSION` to `3.10.x` (recommended).
 
 ## 🤝 Contributing
 DeepShield is an open-source project aimed at digital integrity. Feel free to submit PRs for improved detection models or better UI features.
