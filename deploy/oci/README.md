@@ -5,14 +5,14 @@ This project is a Flask app (`app.py`) that serves:
 - `GET /status`
 - `POST /predict` upload inference
 
-These steps target **Oracle Cloud Always Free** on an **Ampere A1 (ARM64)** VM (Ubuntu 22.04/24.04).
+These steps target **Oracle Cloud Always Free** on an **Ampere A1 (ARM64)** VM running **Ubuntu 22.04 LTS** (recommended so `python3` is 3.10, which is typically easiest for TensorFlow wheels).
 
 ## 1) Create the VM (Oracle Console)
 
 1. Create an **Always Free eligible** compute instance:
    - Shape: `VM.Standard.A1.Flex` (ARM)
    - OCPU/Memory: start with `2 OCPU / 12 GB` (increase later if needed)
-   - OS: Ubuntu 22.04 LTS (or 24.04 LTS)
+   - OS: Ubuntu 22.04 LTS
 2. Networking:
    - Put it in a public subnet with a public IPv4.
 3. Add an ingress rule on the VCN Security List (or Network Security Group) for:
@@ -56,4 +56,3 @@ You should see JSON with `"status":"online"`.
 
 - Keeping it Always Free depends on staying within Oracle's Always Free limits for A1 OCPU-hours and GB-hours.
 - TensorFlow can be memory heavy. If you see OOM kills, reduce workers (we already run 1 worker) or use a smaller VM config.
-
