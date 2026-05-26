@@ -45,7 +45,7 @@ Start the Flask development server:
 ```bash
 python app.py
 ```
-Access the application at `http://127.0.0.1:5000`.
+Access the application at `http://127.0.0.1:5050`.
 
 ## ☁️ Deployment (Render)
 
@@ -54,7 +54,7 @@ Access the application at `http://127.0.0.1:5000`.
 3.  **Environment**: 
     -   **Runtime**: Python 3
     -   **Build Command**: `pip install -r requirements.txt`
-    -   **Start Command**: `gunicorn app:app`
+    -   **Start Command**: `gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 120`
 4.  **Environment Variables**: Ensure `PYTHON_VERSION` is set to `3.9.0` or higher.
 
 ## 🤝 Contributing

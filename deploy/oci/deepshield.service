@@ -1,0 +1,24 @@
+[Unit]
+Description=DeepShield Flask (Gunicorn)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/DeepShield-AI
+Environment=PORT=5050
+ExecStart=/home/ubuntu/DeepShield-AI/.venv/bin/gunicorn app:app --bind 127.0.0.1:5050 --workers 1 --threads 4 --timeout 120
+Restart=always
+RestartSec=2
+
+# basic hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/home/ubuntu/DeepShield-AI/static/uploads /home/ubuntu/DeepShield-AI/static/results
+
+[Install]
+WantedBy=multi-user.target
+
