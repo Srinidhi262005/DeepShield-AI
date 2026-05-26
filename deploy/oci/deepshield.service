@@ -16,9 +16,7 @@ RestartSec=2
 NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=full
-ProtectHome=true
 ReadWritePaths=/home/ubuntu/DeepShield-AI/static/uploads /home/ubuntu/DeepShield-AI/static/results
 
 [Install]
 WantedBy=multi-user.target
-
